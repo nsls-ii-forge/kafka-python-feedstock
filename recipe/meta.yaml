@@ -9,7 +9,6 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ bundle }}
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
   {{ hash_type }}: {{ hash }}
 
@@ -47,7 +46,3 @@ about:
   summary: 'Pure Python client for Apache Kafka'
   dev_url: https://github.com/dpkp/kafka-python
   doc_url: https://kafka-python.readthedocs.io/en/master/
-
-extra:
-  recipe-maintainers:
-    - pmlandwehr
