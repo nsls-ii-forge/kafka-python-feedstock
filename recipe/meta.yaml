@@ -1,21 +1,19 @@
 {% set name = "kafka-python" %}
-{% set version = "1.4.6" %}
-{% set bundle = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash = "08f83d8e0af2e64d25f94314d4bef6785b34e3b0df0effe9eebf76b98de66eeb" %}
+{% set version = "2.0.1" %}
+{% set sha256 = "e59ad42dec8c7d54e3fbba0c1f8b54c44d92a3392d88242962d0c29803f2f6f8" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -43,6 +41,6 @@ about:
   license_file: LICENSE
   license: Apache 2.0
   license_family: Apache
-  summary: 'Pure Python client for Apache Kafka'
+  summary: Pure Python client for Apache Kafka
   dev_url: https://github.com/dpkp/kafka-python
-  doc_url: https://kafka-python.readthedocs.io/en/master/
+  doc_url: https://kafka-python.readthedocs.io
